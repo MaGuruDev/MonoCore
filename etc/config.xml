@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MaGuru. All rights reserved.
+ * This module is developed for Magento® by MaGuru.
+ * Magento® is a trademark of Adobe Inc.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mono>
+            <core>
+                <enabled>1</enabled>
+                <debug_logging>0</debug_logging>
+                <guzzle_timeout>15</guzzle_timeout>
+                <connect_timeout>5</connect_timeout>
+            </core>
+            <chast>
+                <environment>production</environment>
+            </chast>
+        </mono>
+    </default>
+</config>

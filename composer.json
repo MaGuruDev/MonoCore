@@ -1,0 +1,37 @@
+{
+    "name": "maguru/module-mono-core",
+    "description": "Monobank Integration Core Module for Magento 2 — HTTP client, config, ECDSA webhook verification",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "require": {
+        "php": "~8.1.0||~8.2.0||~8.3.0||~8.4.0||~8.5.0",
+        "magento/framework": ">=102.0.0",
+        "maguru/magento2-core": "^1.0",
+        "guzzlehttp/guzzle": "^7.5",
+        "ext-openssl": "*",
+        "ext-json": "*"
+    },
+    "suggest": {
+        "maguru/module-mono-payment": "Monobank Acquiring payment gateway",
+        "maguru/module-mono-chast": "Monobank BNPL 'Частинами' payment method",
+        "maguru/module-mono-fiscal": "Monobank ПРРО fiscal receipts"
+    },
+    "support": {
+        "email": "maguru.sup@gmail.com"
+    },
+    "authors": [
+        {
+            "name": "Andrii Zakharchuk",
+            "email": "maguru.sup@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MaGuru\\MonoCore\\": ""
+        }
+    }
+}

@@ -75,7 +75,7 @@ Inject `AcquiringClientInterface` or `ChastClientInterface` in your service — 
 bin/clinotty php vendor/bin/phpunit -c app/code/MaGuru/MonoCore/Test/Unit/phpunit.xml
 ```
 
-28 unit tests · 47 assertions · PHPStan Level 8 ✅
+57 unit tests · PHPStan Level 8 ✅
 
 ---
 
@@ -88,4 +88,4 @@ bin/clinotty php vendor/bin/phpunit -c app/code/MaGuru/MonoCore/Test/Unit/phpuni
 
 ## License
 
-OSL-3.0 (Open Software License 3.0)
+Free to use. See [LICENSE.txt](LICENSE.txt) for details.

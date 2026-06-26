@@ -1,0 +1,49 @@
+<?php
+/**
+ * @var \MaGuru\MonoCore\Block\Adminhtml\System\ValidateTokenButton $block
+ */
+declare(strict_types=1);
+?>
+<button type="button" id="mono_validate_token_btn" class="action-default scalable">
+    <span><?= $block->escapeHtml(__('Validate Token')) ?></span>
+</button>
+<div id="mono_validate_token_result" style="margin-top:8px;min-height:20px"></div>
+<script>
+require(['jquery'], function ($) {
+    'use strict';
+    $('#mono_validate_token_btn').on('click', function () {
+        var $btn    = $(this);
+        var $result = $('#mono_validate_token_result');
+        $btn.prop('disabled', true);
+        $result.html('<span style="color:#888"><?= $block->escapeJs((string) __('Validating…')) ?></span>');
+        $.ajax({
+            url: '<?= $block->escapeUrl($block->getValidateUrl()) ?>',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                if (data.success) {
+                    $result.html(
+                        '<span style="color:#1e7e34">' +
+                        '<strong>&#10003; ' + $('<div/>').text(data.name).html() + '</strong>' +
+                        '&nbsp;&nbsp;ЄДРПОУ: ' + $('<div/>').text(data.edrpou).html() +
+                        '&nbsp;&nbsp;ID: ' + $('<div/>').text(data.merchant_id).html() +
+                        '</span>'
+                    );
+                } else {
+                    $result.html(
+                        '<span style="color:#c00000">&#10007; ' + $('<div/>').text(data.message).html() + '</span>'
+                    );
+                }
+            },
+            error: function () {
+                $result.html(
+                    '<span style="color:#c00000"><?= $block->escapeJs((string) __('Request failed. Check browser console for details.')) ?></span>'
+                );
+            },
+            complete: function () {
+                $btn.prop('disabled', false);
+            }
+        });
+    });
+});
+</script>

@@ -1,5 +1,17 @@
 # Changelog — MaGuru_MonoCore
 
+## 1.0.1 — 2026-06-26
+
+### Added
+
+- `.gitignore`: excludes `var/`, `generated/`, `vendor/`, `.phpunit.result.cache`, `*.log`, and IDE files
+
+### Changed
+
+- `LICENSE.txt`: replaced proprietary bundled-component license with "FREE TO USE" license (same as MaGuru_Core)
+- `composer.json`: `license` changed to `"proprietary"`; `version` field removed — versions managed via git tags; PHP requirement extended to `~8.4.0||~8.5.0` (PHP 8.1–8.5 supported)
+- `README.md`: test count corrected (28 → 57); license section updated to reference `LICENSE.txt`
+
 ## 1.0.0 — 2026-05-17
 
 ### Added

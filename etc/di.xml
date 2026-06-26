@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MaGuru. All rights reserved.
+ * This module is developed for Magento® by MaGuru.
+ * Magento® is a trademark of Adobe Inc.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Config -->
+    <preference for="MaGuru\MonoCore\Api\ConfigInterface"
+                type="MaGuru\MonoCore\Model\Config"/>
+
+    <!-- Acquiring HTTP client -->
+    <preference for="MaGuru\MonoCore\Api\AcquiringClientInterface"
+                type="MaGuru\MonoCore\Model\Client\AcquiringClient"/>
+
+    <!-- Chast HTTP client -->
+    <preference for="MaGuru\MonoCore\Api\ChastClientInterface"
+                type="MaGuru\MonoCore\Model\Client\ChastClient"/>
+
+    <!-- Webhook ECDSA verifier -->
+    <preference for="MaGuru\MonoCore\Api\WebhookVerifierInterface"
+                type="MaGuru\MonoCore\Model\WebhookVerifier"/>
+
+    <!-- Merchant details -->
+    <preference for="MaGuru\MonoCore\Api\MerchantInterface"
+                type="MaGuru\MonoCore\Model\Merchant"/>
+
+    <!-- Data DTOs -->
+    <preference for="MaGuru\MonoCore\Api\Data\MerchantDetailsInterface"
+                type="MaGuru\MonoCore\Model\Data\MerchantDetails"/>
+
+    <!-- Virtual logger for MonoCore -->
+    <virtualType name="MaGuru\MonoCore\Logger\Handler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/mono_core.log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MaGuru\MonoCore\Logger\Logger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="name" xsi:type="string">mono_core</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">MaGuru\MonoCore\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Inject virtual logger into MonoCore models -->
+    <type name="MaGuru\MonoCore\Model\Client\AcquiringClient">
+        <arguments>
+            <argument name="logger" xsi:type="object">MaGuru\MonoCore\Logger\Logger</argument>
+        </arguments>
+    </type>
+    <type name="MaGuru\MonoCore\Model\Client\ChastClient">
+        <arguments>
+            <argument name="logger" xsi:type="object">MaGuru\MonoCore\Logger\Logger</argument>
+        </arguments>
+    </type>
+    <type name="MaGuru\MonoCore\Model\WebhookVerifier">
+        <arguments>
+            <argument name="logger" xsi:type="object">MaGuru\MonoCore\Logger\Logger</argument>
+        </arguments>
+    </type>
+
+    <!-- Webhook URL note blocks for admin config -->
+    <virtualType name="MaGuru\MonoCore\Block\Adminhtml\System\AcquiringWebhookNote"
+                 type="MaGuru\MonoCore\Block\Adminhtml\System\WebhookUrlNote">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="url_path" xsi:type="string">mono/payment/webhook</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MaGuru\MonoCore\Block\Adminhtml\System\ChastCallbackNote"
+                 type="MaGuru\MonoCore\Block\Adminhtml\System\WebhookUrlNote">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="url_path" xsi:type="string">mono/chast/callback</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- CLI Commands -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="mono_acquiring_validate_token" xsi:type="object">
+                    MaGuru\MonoCore\Console\Command\ValidateTokenCommand
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

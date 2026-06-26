@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MaGuru. All rights reserved.
+ * This module is developed for Magento® by MaGuru.
+ * Magento® is a trademark of Adobe Inc.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MaGuru_MonoCore::mono_menu"
+             title="Monobank"
+             module="MaGuru_MonoCore"
+             sortOrder="20"
+             parent="MaGuru_Core::maguru"
+             resource="MaGuru_MonoCore::config_mono"/>
+        <add id="MaGuru_MonoCore::mono_config"
+             title="Configuration"
+             module="MaGuru_MonoCore"
+             sortOrder="10"
+             parent="MaGuru_MonoCore::mono_menu"
+             action="adminhtml/system_config/edit/section/mono"
+             resource="MaGuru_MonoCore::config_mono"/>
+        <add id="MaGuru_MonoPayment::mono_invoices"
+             title="Invoices"
+             module="MaGuru_MonoPayment"
+             sortOrder="20"
+             parent="MaGuru_MonoCore::mono_menu"
+             action="mono_payment/invoice/index"
+             resource="MaGuru_MonoCore::config_mono"/>
+        <add id="MaGuru_MonoPayment::mono_statement"
+             title="Statement"
+             module="MaGuru_MonoPayment"
+             sortOrder="30"
+             parent="MaGuru_MonoCore::mono_menu"
+             action="mono_payment/statement/index"
+             resource="MaGuru_MonoCore::config_mono"/>
+        <add id="MaGuru_MonoPayment::mono_qr"
+             title="QR Terminals"
+             module="MaGuru_MonoPayment"
+             sortOrder="40"
+             parent="MaGuru_MonoCore::mono_menu"
+             action="mono_payment/qr/index"
+             resource="MaGuru_MonoCore::config_mono"/>
+        <add id="MaGuru_MonoPayment::mono_submerchant"
+             title="Split Receivers"
+             module="MaGuru_MonoPayment"
+             sortOrder="50"
+             parent="MaGuru_MonoCore::mono_menu"
+             action="mono_payment/submerchant/index"
+             resource="MaGuru_MonoCore::config_mono"/>
+        <add id="MaGuru_MonoPayment::mono_subscriptions"
+             title="Subscriptions"
+             module="MaGuru_MonoPayment"
+             sortOrder="60"
+             parent="MaGuru_MonoCore::mono_menu"
+             action="mono_payment/subscription/index"
+             resource="MaGuru_MonoCore::config_mono"/>
+        <add id="MaGuru_MonoChast::mono_chast_orders"
+             title="Chast Orders"
+             module="MaGuru_MonoChast"
+             sortOrder="65"
+             parent="MaGuru_MonoCore::mono_menu"
+             action="mono_chast/order/index"
+             resource="MaGuru_MonoCore::config_mono"/>
+        <add id="MaGuru_MonoFiscal::mono_fiscal_checks"
+             title="Fiscal Checks"
+             module="MaGuru_MonoFiscal"
+             sortOrder="70"
+             parent="MaGuru_MonoCore::mono_menu"
+             action="mono_fiscal/fiscal/index"
+             resource="MaGuru_MonoCore::config_mono"/>
+    </menu>
+</config>

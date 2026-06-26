@@ -1,0 +1,25 @@
+FREE TO USE LICENSE
+
+Copyright © MaGuru. All rights reserved.
+
+The "MaGuru Monobank Core Module for Magento 2" extension is free to use. Permission is hereby granted, free of
+charge, to any person obtaining a copy of this software, to use and integrate
+it into their Magento installation, subject to the following conditions:
+
+1. Free Use
+   You may install and use this extension on an unlimited number of Magento
+   instances without payment.
+
+2. Restrictions
+   - You may not redistribute the Software for a fee or bundle it into a
+     paid product without prior written consent from MaGuru.
+   - You may not remove or alter any copyright or proprietary notices.
+   - Forked or modified versions must be clearly marked as unofficial and
+     must not be published under the MaGuru brand.
+
+3. No Warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IN NO
+   EVENT SHALL MAGURU BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY.
+
+MaGuru — https://github.com/MaGuruDev
+Contact: maguru.sup@gmail.com
