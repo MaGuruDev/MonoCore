@@ -14,7 +14,8 @@
 | Component | Version |
 |-----------|---------|
 | Magento Open Source / Adobe Commerce | 2.4.4+ |
-| PHP | 8.1+ |
+| PHP | 8.1–8.5 |
+| MaGuru_Core | ^1.0.1 |
 | ext-openssl | any |
 | ext-json | any |
 | guzzlehttp/guzzle | ^7.5 |

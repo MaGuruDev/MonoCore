@@ -1,5 +1,11 @@
 # Changelog — MaGuru_MonoCore
 
+## 1.0.2 — 2026-06-26
+
+### Changed
+
+- bump maguru/magento2-core requirement to ^1.0.1
+
 ## 1.0.1 — 2026-06-26
 
 ### Added
