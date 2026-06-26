@@ -1,5 +1,10 @@
 # MaGuru MonoCore — Monobank Integration Core for Magento 2
 
+![Magento 2](https://img.shields.io/badge/Magento-2.4%2B-brightgreen)
+[![Stable Version](https://poser.pugx.org/maguru/module-mono-core/v/stable)](https://packagist.org/packages/maguru/module-mono-core)
+[![Total Downloads](https://poser.pugx.org/maguru/module-mono-core/downloads)](https://packagist.org/packages/maguru/module-mono-core)
+[![License](https://poser.pugx.org/maguru/module-mono-core/license)](https://packagist.org/packages/maguru/module-mono-core)
+
 **FREE** infrastructure module. Provides the shared HTTP clients, encrypted configuration, ECDSA webhook verification, and exception hierarchy used by all other MaGuru Monobank modules.
 
 ---
