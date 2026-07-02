@@ -131,6 +131,9 @@ class ChastClient implements ChastClientInterface
         }
     }
 
+    /**
+     * @return int
+     */
     private function resolveStoreId(): int
     {
         return (int) $this->storeManager->getStore()->getId();

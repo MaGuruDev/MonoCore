@@ -13,7 +13,6 @@
             <label>Monobank Integration</label>
             <tab>maguru</tab>
             <resource>MaGuru_MonoCore::config_mono</resource>
-
             <!-- ===== General ===== -->
             <group id="core" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
@@ -35,66 +34,6 @@
                     <validate>validate-digits validate-greater-than-zero</validate>
                 </field>
             </group>
-
-            <!-- ===== Acquiring / Payment ===== -->
-            <group id="acquiring" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Acquiring API (Payment)</label>
-                <field id="api_token" translate="label comment" type="obscure" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>API Token (X-Token)</label>
-                    <comment>Merchant token from web.monobank.ua → Merchant section</comment>
-                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                </field>
-                <field id="validate_token" translate="label" type="button" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Validate Token</label>
-                    <frontend_model>MaGuru\MonoCore\Block\Adminhtml\System\ValidateTokenButton</frontend_model>
-                </field>
-                <field id="payment_webhook_url" translate="label" type="note" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Payment Webhook URL</label>
-                    <frontend_model>MaGuru\MonoCore\Block\Adminhtml\System\AcquiringWebhookNote</frontend_model>
-                </field>
-            </group>
-
-            <!-- ===== Chast / BNPL ===== -->
-            <group id="chast" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>BNPL "Частинами" API</label>
-                <field id="environment" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Environment</label>
-                    <comment>Sandbox: test environment (u2-demo-ext.mono.st4g3.com). Stage: pre-production (u2-ext.mono.st4g3.com). Production: live (u2.monobank.com.ua).</comment>
-                    <source_model>MaGuru\MonoCore\Model\Config\Source\ChastEnvironment</source_model>
-                </field>
-                <field id="store_id" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Store ID (Production)</label>
-                    <comment>Unique store identifier provided by Monobank for BNPL integration</comment>
-                </field>
-                <field id="secret" translate="label comment" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Store Secret (Production)</label>
-                    <comment>HMAC-SHA256 signing key provided by Monobank for BNPL integration</comment>
-                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                </field>
-                <field id="store_id_sandbox" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Store ID (Sandbox)</label>
-                    <comment>Sandbox Store ID. Default test value: test_store_with_confirm</comment>
-                </field>
-                <field id="secret_sandbox" translate="label comment" type="obscure" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Store Secret (Sandbox)</label>
-                    <comment>Sandbox signing key. Default test value: secret_98765432--123-123</comment>
-                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                </field>
-                <field id="store_id_stage" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Store ID (Stage)</label>
-                    <comment>Stage Store ID provided by Monobank for pre-production testing</comment>
-                </field>
-                <field id="secret_stage" translate="label comment" type="obscure" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Store Secret (Stage)</label>
-                    <comment>Stage signing key provided by Monobank for pre-production testing</comment>
-                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                </field>
-                <field id="chast_callback_url" translate="label" type="note" sortOrder="65" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Chast Callback URL</label>
-                    <frontend_model>MaGuru\MonoCore\Block\Adminhtml\System\ChastCallbackNote</frontend_model>
-                </field>
-            </group>
-
         </section>
     </system>
 </config>

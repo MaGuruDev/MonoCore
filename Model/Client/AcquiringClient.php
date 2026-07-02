@@ -115,7 +115,9 @@ class AcquiringClient implements AcquiringClientInterface
             $options['query'] = $query;
         }
 
-        $client = $this->clientFactory->create(['config' => ['base_uri' => self::BASE_URL]]);
+        $configuredUrl = $this->config->getAcquiringBaseUrl($storeId);
+        $baseUrl       = $configuredUrl !== '' ? $configuredUrl : self::BASE_URL;
+        $client        = $this->clientFactory->create(['config' => ['base_uri' => $baseUrl]]);
 
         try {
             if ($this->config->isDebugLoggingEnabled($storeId)) {

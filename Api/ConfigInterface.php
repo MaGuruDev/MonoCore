@@ -31,6 +31,12 @@ interface ConfigInterface
      * @param int $storeId
      * @return string
      */
+    public function getAcquiringBaseUrl(int $storeId = 0): string;
+
+    /**
+     * @param int $storeId
+     * @return string
+     */
     public function getChastEnvironment(int $storeId = 0): string;
 
     /**

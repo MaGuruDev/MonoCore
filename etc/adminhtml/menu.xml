@@ -22,6 +22,13 @@
              parent="MaGuru_MonoCore::mono_menu"
              action="adminhtml/system_config/edit/section/mono"
              resource="MaGuru_MonoCore::config_mono"/>
+        <add id="MaGuru_MonoPayment::mono_merchant"
+             title="Merchant Details"
+             module="MaGuru_MonoPayment"
+             sortOrder="15"
+             parent="MaGuru_MonoCore::mono_menu"
+             action="mono_payment/merchant/index"
+             resource="MaGuru_MonoCore::config_mono"/>
         <add id="MaGuru_MonoPayment::mono_invoices"
              title="Invoices"
              module="MaGuru_MonoPayment"

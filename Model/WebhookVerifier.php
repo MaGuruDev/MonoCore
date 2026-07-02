@@ -64,6 +64,9 @@ class WebhookVerifier implements WebhookVerifierInterface
         return $this->verifySignature($freshPem, $body, $signature);
     }
 
+    /**
+     * @return string
+     */
     private function getPublicKeyPem(): string
     {
         $cached = $this->cache->load(self::CACHE_KEY);
@@ -74,6 +77,9 @@ class WebhookVerifier implements WebhookVerifierInterface
         return $this->fetchAndCachePubkey();
     }
 
+    /**
+     * @return string
+     */
     private function fetchAndCachePubkey(): string
     {
         try {
@@ -102,6 +108,12 @@ class WebhookVerifier implements WebhookVerifierInterface
         }
     }
 
+    /**
+     * @param string $pubkeyPem
+     * @param string $body
+     * @param string $signatureBase64
+     * @return bool
+     */
     private function verifySignature(string $pubkeyPem, string $body, string $signatureBase64): bool
     {
         $publicKey = openssl_pkey_get_public($pubkeyPem);

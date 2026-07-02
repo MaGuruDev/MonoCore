@@ -25,6 +25,7 @@ class Config extends AbstractConfig implements ConfigInterface
     private const XML_PATH_GUZZLE_TIMEOUT       = 'mono/core/guzzle_timeout';
     private const XML_PATH_CONNECT_TIMEOUT      = 'mono/core/connect_timeout';
     private const XML_PATH_ACQUIRING_TOKEN      = 'mono/acquiring/api_token';
+    private const XML_PATH_ACQUIRING_BASE_URL   = 'mono/acquiring/api_base_url';
     private const XML_PATH_CHAST_ENVIRONMENT    = 'mono/chast/environment';
     private const XML_PATH_CHAST_STORE_ID       = 'mono/chast/store_id';
     private const XML_PATH_CHAST_SECRET         = 'mono/chast/secret';
@@ -115,6 +116,15 @@ class Config extends AbstractConfig implements ConfigInterface
         };
         $encrypted = $this->getValue($path, $storeId);
         return $encrypted !== '' ? $this->encryptor->decrypt($encrypted) : '';
+    }
+
+    /**
+     * @param int $storeId
+     * @return string
+     */
+    public function getAcquiringBaseUrl(int $storeId = 0): string
+    {
+        return $this->getValue(self::XML_PATH_ACQUIRING_BASE_URL, $storeId);
     }
 
     /**

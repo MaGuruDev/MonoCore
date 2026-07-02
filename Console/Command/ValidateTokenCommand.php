@@ -30,6 +30,9 @@ class ValidateTokenCommand extends Command
         parent::__construct();
     }
 
+    /**
+     * @return void
+     */
     protected function configure(): void
     {
         $this->setName('mono:acquiring:validate-token')

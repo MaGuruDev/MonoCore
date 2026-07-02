@@ -40,12 +40,11 @@ bin/magento cache:flush
 | Field | Description |
 |-------|-------------|
 | Enabled | Enable/disable the integration |
-| Acquiring API Token | Your Monobank merchant X-Token (encrypted) |
-| Chast Store ID | Store ID for Monobank Частини API |
-| Chast Secret | HMAC-SHA256 secret for Chast callbacks (encrypted) |
 | HTTP Timeout | Guzzle request timeout in seconds (default: 15) |
 | Connect Timeout | TCP connect timeout in seconds (default: 5) |
 | Debug Logging | Write detailed request/response logs to `var/log/mono_core.log` |
+
+> **Acquiring API Token**, **Chast Store ID** and **Chast Secret** are configured in the same admin section but are contributed by `MaGuru_MonoPayment` and `MaGuru_MonoChast` respectively — see their READMEs. They only appear once the corresponding module is installed.
 
 ---
 

@@ -1,10 +1,19 @@
 # Changelog — MaGuru_MonoCore
 
+## 1.1.6 — 2026-07-02
+
+### Changed
+- `etc/adminhtml/system.xml` — `Acquiring API` and `Chast` config groups moved out to `MonoPayment`/`MonoChast` respectively (same `Stores → Configuration → MaGuru → Monobank Integration` section, same config paths); `MonoCore` now only contributes the `General` group. Merchants who install `MonoCore` standalone (or with only one paid add-on) no longer see credential fields for modules they don't have installed.
+
+### Fixed
+- Added missing `@throws`/DocBlocks to `WebhookVerifier` private methods, `ChastClient::resolveStoreId()`, `ValidateTokenCommand::configure()` per project DocBlock conventions
+
 ## 1.0.2 — 2026-06-26
 
 ### Changed
 
-- bump maguru/magento2-core requirement to ^1.0.1
+- `composer.json`: `maguru/magento2-core` requirement bumped to `^1.0.1`
+- `README.md`: added `MaGuru_Core ^1.0.1` to requirements table; PHP range updated to `8.1–8.5`
 
 ## 1.0.1 — 2026-06-26
 

@@ -1,4 +1,5 @@
 {
+  "version": "1.1.6",
     "name": "maguru/module-mono-core",
     "description": "Monobank Integration Core Module for Magento 2 — HTTP client, config, ECDSA webhook verification",
     "type": "magento2-module",
